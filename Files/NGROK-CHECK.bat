@@ -14,7 +14,7 @@ curl -o "C:\Users\Public\Desktop\Fast Config VPS.exe" https://github.com/monica3
 PowerShell -NoProfile -ExecutionPolicy Bypass -Command "& './DisablePasswordComplexity.ps1'" > out.txt 2>&1
 diskperf -Y >nul
 start audiosrv >nul
-config Audiosrv start= auto >nul
+sc config Audiosrv start= auto >nul
 ICACLS C:\Windows\Temp /grant administrator:F >nul
 ICACLS C:\Windows\installer /grant administrator:F >nul
 ping -n 10 127.0.0.1 >nul
