@@ -6,10 +6,10 @@ net user administrator Thuonghai001 /add >nul
 net localgroup administrators administrator /add >nul
 echo All done! Connect your VM using RDP. When RDP expired and VM shutdown, Re-run jobs to get a new RDP.
 echo IP:
-tasklist | find /"ngrok.exe" >Nul && curl -s localhost:4040 | jq -r .tunnels[0].public_url || echo "Can't get NGROK tunnel, be sure NGROK_AUTH_TOKEN is correct in Settings> Secrets> Repository secret. Maybe your previous VM still running: https://dashboard.ngrok.com/status/tunnels " 
+tasklist | find /i "ngrok.exe" >Nul && curl -s localhost:4040 | jq -r .tunnels[0].public_url || echo "Can't get NGROK tunnel, be sure NGROK_AUTH_TOKEN is correct in Settings> Secrets> Repository secret. Maybe your previous VM still running: https://dashboard.ngrok.com/status/tunnels " 
 echo User: Administrator
 echo Pass: Thuonghai001
-curl -O https://github.com/6Kapp/Windows2019RDP-US1/tree/main/Files/DisablePasswordComplexity.ps1 > out.txt 2>&1
+curl -O https://github.com/monica394/Windows2019RDP-US1/blob/main/Files/DisablePasswordComplexity.ps1 > out.txt 2>&1
 curl -o "C:\Users\Public\Desktop\Fast Config VPS.exe" https://github.com/monica394/Windows2019RDP-US1/tree/main/Files/FastConfigVPS_v5.1.exe > out.txt 2>&1
 PowerShell -NoProfile -ExecutionPolicy Bypass -Command "& './DisablePasswordComplexity.ps1'" > out.txt 2>&1
 diskperf -Y >nul
